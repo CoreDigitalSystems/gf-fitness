@@ -6,9 +6,12 @@ import HomePage from './pages/HomePage'
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <TopBar />
       <Navbar />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <HomePage />
       </main>
       <Footer />

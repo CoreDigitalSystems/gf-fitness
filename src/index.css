@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gf-blue: #0066FF;
-  --color-gf-dark-blue: #0035D6;
+  --color-gf-blue: #0066ff;
+  --color-gf-dark-blue: #0035d6;
   --color-gf-black: #000000;
   --color-gf-dark: #111111;
   --color-gf-gray: #f5f5f5;
   --color-gf-light-gray: #e5e5e5;
-  --font-heading: 'Roboto Flex', sans-serif;
-  --font-body: 'Albert Sans', sans-serif;
+  --color-gf-muted: #f0f0f0;
+  --color-gf-body: #333333;
+  --font-heading: "Roboto Flex", sans-serif;
+  --font-body: "Albert Sans", sans-serif;
 }
 
 * {
@@ -23,18 +25,45 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #333;
+  color: var(--color-gf-body);
   background: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Skip-to-content accessibility link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-gf-blue);
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
 /* Scrolling amenities animation */
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-scroll-left {
@@ -47,8 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero slider fade */
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .slide-fade-in {

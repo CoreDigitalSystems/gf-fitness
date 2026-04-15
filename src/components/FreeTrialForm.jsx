@@ -47,7 +47,7 @@ export default function FreeTrialForm() {
                     required
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue"
                   />
                 </div>
                 <div>
@@ -58,7 +58,7 @@ export default function FreeTrialForm() {
                     required
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue"
                   />
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function FreeTrialForm() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue"
                 />
               </div>
 
@@ -83,7 +83,7 @@ export default function FreeTrialForm() {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue"
                 />
               </div>
 
@@ -94,7 +94,7 @@ export default function FreeTrialForm() {
                   required
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue bg-white"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue bg-white"
                 >
                   <option value="">Select a location</option>
                   <option value="acworth">Acworth, GA</option>
@@ -111,7 +111,7 @@ export default function FreeTrialForm() {
                   required
                   value={formData.zipCode}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gf-blue/20 focus:border-gf-blue"
                 />
               </div>
 

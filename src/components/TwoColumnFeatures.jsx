@@ -45,7 +45,7 @@ export default function TwoColumnFeatures() {
               href="/amenities"
               className="inline-block bg-gf-blue text-white font-bold text-sm tracking-wider px-6 py-3 rounded-full hover:bg-gf-dark-blue transition-colors self-start"
             >
-              VIEW All amenities
+              VIEW ALL AMENITIES
             </a>
           </div>
         </div>

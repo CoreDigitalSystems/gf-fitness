@@ -38,16 +38,20 @@ export default function Navbar() {
             onMouseEnter={() => setLocDropdown(true)}
             onMouseLeave={() => setLocDropdown(false)}
           >
-            <button className="text-white font-semibold text-sm tracking-wider flex items-center gap-1 hover:text-gf-blue transition-colors">
+            <button
+              aria-expanded={locDropdown}
+              aria-haspopup="true"
+              className="text-white font-semibold text-sm tracking-wider flex items-center gap-1 hover:text-gf-blue transition-colors"
+            >
               LOCATIONS
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-3 h-3 transition-transform ${locDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             {locDropdown && (
-              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[180px]">
+              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[180px]" role="menu">
                 {locations.map((loc) => (
-                  <a key={loc.name} href={loc.href} className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 transition-colors">
+                  <a key={loc.name} href={loc.href} role="menuitem" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 transition-colors">
                     {loc.name}
                   </a>
                 ))}
@@ -64,16 +68,20 @@ export default function Navbar() {
             onMouseEnter={() => setClassDropdown(true)}
             onMouseLeave={() => setClassDropdown(false)}
           >
-            <button className="text-white font-semibold text-sm tracking-wider flex items-center gap-1 hover:text-gf-blue transition-colors">
+            <button
+              aria-expanded={classDropdown}
+              aria-haspopup="true"
+              className="text-white font-semibold text-sm tracking-wider flex items-center gap-1 hover:text-gf-blue transition-colors"
+            >
               GROUP CLASSES
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-3 h-3 transition-transform ${classDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             {classDropdown && (
-              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[180px]">
+              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[180px]" role="menu">
                 {groupClasses.map((cls) => (
-                  <a key={cls.name} href={cls.href} className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 transition-colors">
+                  <a key={cls.name} href={cls.href} role="menuitem" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 transition-colors">
                     {cls.name}
                   </a>
                 ))}

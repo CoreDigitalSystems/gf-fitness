@@ -18,15 +18,15 @@ export default function CTABanner() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/join"
-            className="bg-white text-gf-dark-blue font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-gray-100 transition-colors"
+            className="bg-white text-gf-dark-blue font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-full hover:bg-gray-100 transition-colors"
           >
-            become a member
+            BECOME A MEMBER
           </a>
           <a
             href="/free-trial"
-            className="border-2 border-white text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-white/10 transition-colors"
+            className="border-2 border-white text-white font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-full hover:bg-white/10 transition-colors"
           >
-            Get a Free Trial
+            GET A FREE TRIAL
           </a>
         </div>
       </div>

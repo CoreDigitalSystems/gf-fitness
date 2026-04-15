@@ -3,15 +3,19 @@ import { useState, useEffect } from 'react'
 const slides = [
   {
     image: 'https://gffitnessgyms.com/wp-content/uploads/2025/07/gf_homepage_banner.jpg',
+    alt: 'GF Fitness gym floor with modern equipment',
   },
   {
     image: 'https://gffitnessgyms.com/wp-content/uploads/2025/05/Georgia-fitness-acworth-georgia1.jpg',
+    alt: 'GF Fitness Acworth, Georgia location exterior',
   },
   {
     image: 'https://gffitnessgyms.com/wp-content/uploads/2025/04/J3A0953.jpg',
+    alt: 'Members working out at GF Fitness',
   },
   {
     image: 'https://gffitnessgyms.com/wp-content/uploads/2025/06/Cycle-Room-copy.webp',
+    alt: 'GF Fitness cycle studio with indoor bikes',
   },
 ]
 
@@ -39,9 +43,10 @@ export default function Hero() {
             index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
+          <img
+            src={slide.image}
+            alt={slide.alt}
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
@@ -49,11 +54,9 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 font-[family-name:var(--font-heading)]">
-          Change Your Body
-        </h1>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-[family-name:var(--font-heading)]">
-          Change Your Life
+          <span className="block">Change Your Body.</span>
+          <span className="block">Change Your Life.</span>
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
           With unrivaled space and activities, GF Fitness is a community with a passion for inspired fitness, sports and wellness.

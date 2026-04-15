@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const comingSoonLocations = [
   { name: 'Sugar Hill, GA', href: '/coming-soon/sugar-hill' },
@@ -7,9 +7,20 @@ const comingSoonLocations = [
 
 export default function TopBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
-    <div className="bg-[#f0f0f0] text-black text-sm relative z-50">
+    <div className="bg-gf-muted text-black text-sm relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-6">
           <a href="/corporate-wellness" className="font-semibold tracking-wide text-xs hover:text-gf-blue transition-colors">
@@ -18,9 +29,11 @@ export default function TopBar() {
           <a href="/contact" className="font-semibold tracking-wide text-xs hover:text-gf-blue transition-colors">
             CONTACT US
           </a>
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
+              aria-expanded={dropdownOpen}
+              aria-haspopup="true"
               className="font-semibold tracking-wide text-xs hover:text-gf-blue transition-colors flex items-center gap-1"
             >
               COMING SOON
@@ -29,11 +42,12 @@ export default function TopBar() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-md py-2 min-w-[180px] z-50">
+              <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-md py-2 min-w-[180px] z-50" role="menu">
                 {comingSoonLocations.map((loc) => (
                   <a
                     key={loc.name}
                     href={loc.href}
+                    role="menuitem"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors"
                   >
                     {loc.name}
