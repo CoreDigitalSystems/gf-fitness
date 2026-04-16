@@ -1,3 +1,29 @@
+import { Link } from 'react-router-dom'
+
+const quickLinks = [
+  { name: 'Group Fitness Classes', href: '/group-fitness' },
+  { name: 'Training', href: '/training' },
+  { name: 'Free Trial', href: '/free-trial' },
+  { name: 'Contact Us', href: '/contact-us' },
+  { name: 'Terms of Service', href: '/terms-of-service' },
+]
+
+const comingSoon = [
+  { name: 'Augusta, GA', href: '/location/augusta' },
+  { name: 'N. Las Vegas, NV', href: '/location/vegas' },
+  { name: 'Huntsville, AL', href: '/location/huntsville' },
+  { name: 'Phoenix, AZ', href: '/location/phoenix' },
+  { name: 'Newington, CT', href: '/location/newington' },
+  { name: 'Covington, GA', href: '/location/covington' },
+]
+
+const gfLocations = [{ name: 'Bristol, CT', href: '/location/bristol' }]
+
+const gaLocations = [
+  { name: 'Sugar Hill, GA', href: '/location/sugarhill' },
+  { name: 'Acworth, GA', href: '/location/acworth' },
+]
+
 export default function Footer() {
   return (
     <footer
@@ -8,89 +34,27 @@ export default function Footer() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-20">
-        {/* Top section */}
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
         <div className="text-center mb-12">
           <p className="text-gray-400 text-lg mb-2">
             Stop by today and begin a healthier lifestyle! We want to see you succeed!
           </p>
         </div>
 
-        {/* Main footer grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Free Trial */}
-          <div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-1">
             <img
               src="https://gffitnessgyms.com/wp-content/uploads/2025/05/new-GF-logo.png"
               alt="GF Fitness"
               className="h-12 w-auto mb-6"
             />
             <p className="text-gray-400 text-sm mb-4">Try us, risk free!</p>
-            <a
-              href="/free-trial"
+            <Link
+              to="/free-trial"
               className="inline-block bg-gf-blue text-white font-bold text-sm tracking-wider px-6 py-3 rounded-full hover:bg-gf-dark-blue transition-colors"
             >
               Sign up for a FREE Trial
-            </a>
-          </div>
-
-          {/* Franchise */}
-          <div>
-            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
-              Franchise Opportunities
-            </h4>
-            <a
-              href="/franchise"
-              className="inline-block border-2 border-white text-white font-bold text-sm tracking-wider px-6 py-3 rounded-full hover:bg-white hover:text-black transition-colors"
-            >
-              Own a GF Fitness
-            </a>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { name: 'Group Fitness Classes', href: '/group-fitness' },
-                { name: 'Training', href: '/training' },
-                { name: 'Free Trial', href: '/free-trial' },
-                { name: 'Contact Us', href: '/contact' },
-                { name: 'Terms of Service', href: '/terms' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Coming Soon */}
-          <div>
-            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
-              Coming Soon
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="/coming-soon/sugar-hill" className="text-gray-400 text-sm hover:text-white transition-colors">
-                  Sugar Hill, GA
-                </a>
-              </li>
-              <li>
-                <a href="/coming-soon/bristol" className="text-gray-400 text-sm hover:text-white transition-colors">
-                  Bristol, CT
-                </a>
-              </li>
-            </ul>
-
-            {/* Social Links */}
+            </Link>
             <div className="flex gap-4 mt-6">
               <a
                 href="https://www.facebook.com/gffitness"
@@ -127,9 +91,74 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+          <div>
+            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
+              Quick Links
+            </h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-lg font-bold mt-8 mb-4 font-[family-name:var(--font-heading)]">
+              Franchise Opportunities
+            </h4>
+            <Link
+              to="/franchise"
+              className="inline-block border-2 border-white text-white font-bold text-sm tracking-wider px-6 py-3 rounded-full hover:bg-white hover:text-black transition-colors"
+            >
+              Own a GF Fitness
+            </Link>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
+              GF Fitness
+            </h4>
+            <ul className="space-y-2">
+              {gfLocations.map((l) => (
+                <li key={l.name}>
+                  <Link to={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-lg font-bold mt-8 mb-4 font-[family-name:var(--font-heading)]">
+              Georgia Fitness
+            </h4>
+            <ul className="space-y-2">
+              {gaLocations.map((l) => (
+                <li key={l.name}>
+                  <Link to={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h4 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
+              Coming Soon
+            </h4>
+            <ul className="grid grid-cols-2 gap-y-2">
+              {comingSoon.map((l) => (
+                <li key={l.name}>
+                  <Link to={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-gray-800 mt-12 pt-6 text-center">
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} GF Fitness Gyms. All rights reserved.

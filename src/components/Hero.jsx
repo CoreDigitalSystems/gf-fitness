@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const slides = [
   {
@@ -61,15 +62,23 @@ export default function Hero() {
         <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
           With unrivaled space and activities, GF Fitness is a community with a passion for inspired fitness, sports and wellness.
         </p>
-        <a
-          href="/join"
-          className="bg-gf-blue text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-gf-dark-blue transition-colors inline-flex items-center gap-2"
-        >
-          BECOME A MEMBER
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://join.gffitnessgyms.com/"
+            className="bg-gf-blue text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-gf-dark-blue transition-colors inline-flex items-center gap-2"
+          >
+            BECOME A MEMBER
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <Link
+            to="/free-trial"
+            className="border-2 border-white text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors"
+          >
+            GET A FREE TRIAL
+          </Link>
+        </div>
       </div>
 
       {/* Navigation Arrows */}
