@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx vite:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(npm run:*)",
+      "Bash(npx --yes vite build)",
+      "Bash(ls C:\\\\dev\\\\gf-fitness\\\\node_modules\\\\.bin\\\\vite*)",
+      "Bash(dir C:\\\\dev\\\\gf-fitness\\\\node_modules\\\\.bin\\\\vite*)",
+      "Bash(node node_modules/vite/bin/vite.js build)",
+      "Bash(node -e ':*)",
+      "Bash(npm i:*)",
+      "Bash(netstat -ano)",
+      "Bash(tasklist //FI \"PID eq 40476\")",
+      "Bash(wmic process:*)",
+      "Bash(curl -s http://localhost:5173/src/components/Navbar.jsx)",
+      "Bash(curl -s http://localhost:5173/)",
+      "WebFetch(domain:gffitnessgyms.com)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp"
+    ]
+  }
+}
