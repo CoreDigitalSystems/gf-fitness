@@ -1,119 +1,103 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react';
+import { IconArrow, IconPlay } from './Icons';
+import { BtnFilled, BtnOutline, SectionLabel, Placeholder, useInView } from './Primitives';
 
-const slides = [
-  {
-    image: 'https://gffitnessgyms.com/wp-content/uploads/2025/07/gf_homepage_banner.jpg',
-    alt: 'GF Fitness gym floor with modern equipment',
-  },
-  {
-    image: 'https://gffitnessgyms.com/wp-content/uploads/2025/05/Georgia-fitness-acworth-georgia1.jpg',
-    alt: 'GF Fitness Acworth, Georgia location exterior',
-  },
-  {
-    image: 'https://gffitnessgyms.com/wp-content/uploads/2025/04/J3A0953.jpg',
-    alt: 'Members working out at GF Fitness',
-  },
-  {
-    image: 'https://gffitnessgyms.com/wp-content/uploads/2025/06/Cycle-Room-copy.webp',
-    alt: 'GF Fitness cycle studio with indoor bikes',
-  },
-]
-
-export default function Hero() {
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const goTo = (index) => setCurrent(index)
-  const prev = () => setCurrent((current - 1 + slides.length) % slides.length)
-  const next = () => setCurrent((current + 1) % slides.length)
-
+const HeroGrid = () => {
+  const tiles = [
+    { label: 'Rack · Floor 2', h: 'h-40 md:h-56' },
+    { label: 'Cardio Deck',   h: 'h-56 md:h-72' },
+    { label: 'Turf Zone',     h: 'h-32 md:h-40' },
+    { label: 'Free Weights',  h: 'h-48 md:h-64' },
+    { label: 'Studio A',      h: 'h-36 md:h-48' },
+    { label: 'Recovery',      h: 'h-44 md:h-60' },
+  ];
   return (
-    <section className="relative h-[85vh] min-h-[500px] overflow-hidden">
-      {/* Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-        >
-          <img
-            src={slide.image}
-            alt={slide.alt}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="grid grid-cols-3 gap-2 p-2 h-full opacity-40">
+        <div className="space-y-2">
+          <Placeholder label={tiles[0].label} className={tiles[0].h} />
+          <Placeholder label={tiles[3].label} className={tiles[3].h} />
         </div>
-      ))}
-
-      {/* Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-[family-name:var(--font-heading)]">
-          <span className="block">Change Your Body.</span>
-          <span className="block">Change Your Life.</span>
-        </h1>
-        <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
-          With unrivaled space and activities, GF Fitness is a community with a passion for inspired fitness, sports and wellness.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://join.gffitnessgyms.com/"
-            className="bg-gf-blue text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-gf-dark-blue transition-colors inline-flex items-center gap-2"
-          >
-            BECOME A MEMBER
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <Link
-            to="/free-trial"
-            className="border-2 border-white text-white font-bold text-sm tracking-wider px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors"
-          >
-            GET A FREE TRIAL
-          </Link>
+        <div className="space-y-2 pt-6">
+          <Placeholder label={tiles[1].label} className={tiles[1].h} />
+          <Placeholder label={tiles[4].label} className={tiles[4].h} />
+        </div>
+        <div className="space-y-2">
+          <Placeholder label={tiles[2].label} className={tiles[2].h} />
+          <Placeholder label={tiles[5].label} className={tiles[5].h} />
         </div>
       </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+      <div className="absolute inset-0 grid-bg opacity-40" />
+    </div>
+  );
+};
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/70 hover:text-white transition-colors"
-        aria-label="Previous slide"
-      >
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/70 hover:text-white transition-colors"
-        aria-label="Next slide"
-      >
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+const Counter = ({ end, suffix = '', duration = 1400 }) => {
+  const [val, setVal] = useState(0);
+  const ref = useRef(null);
+  const visible = useInView(ref);
+  useEffect(() => {
+    if (!visible) return;
+    const start = performance.now();
+    let raf;
+    const tick = (t) => {
+      const p = Math.min(1, (t - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setVal(Math.round(end * eased));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [visible, end, duration]);
+  return <span ref={ref}>{val.toLocaleString()}{suffix}</span>;
+};
 
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goTo(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === current ? 'bg-gf-blue' : 'bg-white/50 hover:bg-white/80'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
+export const Hero = ({ onNav }) => (
+  <section id="top" className="relative min-h-[calc(100vh-104px)] flex flex-col justify-between bg-black">
+    <HeroGrid />
+
+    <div className="relative z-10 flex-1 flex items-center">
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 py-20">
+        <div className="max-w-3xl">
+          <SectionLabel>Premium Athletic Clubs · Est. 2014</SectionLabel>
+          <h1 className="font-display text-white text-[54px] sm:text-7xl lg:text-[104px] leading-[0.9] tracking-[-0.03em] mb-6">
+            Change your body.<br />
+            <span className="text-white/70">Change your life.</span>
+          </h1>
+          <p className="text-[#cccccc] text-lg lg:text-xl max-w-xl mb-10 leading-relaxed">
+            Unrivaled space, world-class coaching and a community that shows up. GF Fitness is where inspired fitness, sport and recovery meet.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <BtnFilled onClick={() => onNav('membership')} className="px-7 py-4 text-base">
+              Become a Member
+              <IconArrow className="h-4 w-4" />
+            </BtnFilled>
+            <BtnOutline onClick={() => onNav('contact')} className="px-7 py-4 text-base">
+              <IconPlay className="h-3.5 w-3.5" />
+              Tour a Club
+            </BtnOutline>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Stat bar */}
+    <div className="relative z-10 border-t border-white/10 bg-black/60 backdrop-blur-md">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10 grid grid-cols-3 divide-x divide-white/10">
+        {[
+          { n: 3,    s: '+', label: 'Locations Open' },
+          { n: 1000, s: '+', label: 'Active Members' },
+          { n: 50,   s: '+', label: 'Classes / Week' },
+        ].map((stat, i) => (
+          <div key={i} className="py-6 lg:py-8 px-4 lg:px-8 flex items-baseline gap-3">
+            <div className="font-display text-3xl sm:text-4xl lg:text-5xl text-white tabular-nums">
+              <Counter end={stat.n} suffix={stat.s} />
+            </div>
+            <div className="text-[#cccccc] text-xs lg:text-sm uppercase tracking-[0.2em]">{stat.label}</div>
+          </div>
         ))}
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+);
