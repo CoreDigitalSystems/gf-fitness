@@ -129,5 +129,5 @@ export const IconHandshake = (p) => (
 );
 
 export const BrandLogo = ({ className = "h-8" }) => (
-  <img src="/assets/gf-logo.webp" alt="GF Fitness" className={`${className} w-auto object-contain`} />
+  <img src={`${import.meta.env.BASE_URL}assets/gf-logo.webp`} alt="GF Fitness" className={`${className} w-auto object-contain`} />
 );
