@@ -1,34 +1,38 @@
 import { useState, useEffect, useRef } from 'react';
 import { IconArrow, IconPlay } from './Icons';
-import { BtnFilled, BtnOutline, SectionLabel, Placeholder, useInView } from './Primitives';
+import { BtnFilled, BtnOutline, SectionLabel, useInView } from './Primitives';
 
-const HeroGrid = () => {
-  const tiles = [
-    { label: 'Rack · Floor 2', h: 'h-40 md:h-56' },
-    { label: 'Cardio Deck',   h: 'h-56 md:h-72' },
-    { label: 'Turf Zone',     h: 'h-32 md:h-40' },
-    { label: 'Free Weights',  h: 'h-48 md:h-64' },
-    { label: 'Studio A',      h: 'h-36 md:h-48' },
-    { label: 'Recovery',      h: 'h-44 md:h-60' },
-  ];
+const BASE = import.meta.env.BASE_URL;
+
+const SLIDES = [
+  `${BASE}assets/hero-1.jpeg`,
+  `${BASE}assets/hero-2.jpeg`,
+  `${BASE}assets/hero-3.jpeg`,
+];
+
+const HeroBackground = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setCurrent((c) => (c + 1) % SLIDES.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="grid grid-cols-3 gap-2 p-2 h-full opacity-40">
-        <div className="space-y-2">
-          <Placeholder label={tiles[0].label} className={tiles[0].h} />
-          <Placeholder label={tiles[3].label} className={tiles[3].h} />
-        </div>
-        <div className="space-y-2 pt-6">
-          <Placeholder label={tiles[1].label} className={tiles[1].h} />
-          <Placeholder label={tiles[4].label} className={tiles[4].h} />
-        </div>
-        <div className="space-y-2">
-          <Placeholder label={tiles[2].label} className={tiles[2].h} />
-          <Placeholder label={tiles[5].label} className={tiles[5].h} />
-        </div>
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
-      <div className="absolute inset-0 grid-bg opacity-40" />
+      {SLIDES.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          style={{ opacity: i === current ? 1 : 0 }}
+        />
+      ))}
+      {/* Dark vignette so text stays legible over any photo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
+      <div className="absolute inset-0 grid-bg opacity-20" />
     </div>
   );
 };
@@ -55,7 +59,7 @@ const Counter = ({ end, suffix = '', duration = 1400 }) => {
 
 export const Hero = ({ onNav }) => (
   <section id="top" className="relative min-h-[calc(100vh-104px)] flex flex-col justify-between bg-black">
-    <HeroGrid />
+    <HeroBackground />
 
     <div className="relative z-10 flex-1 flex items-center">
       <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 py-20">
