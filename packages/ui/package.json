@@ -1,0 +1,13 @@
+{
+  "name": "@gf/ui",
+  "private": true,
+  "version": "0.0.0",
+  "description": "GF Fitness shared design tokens — consumed by web (Tailwind v4 @theme) and mobile (NativeWind).",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens": "./src/tokens.ts",
+    "./tokens.json": "./src/tokens.json"
+  }
+}

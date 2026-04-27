@@ -5,7 +5,7 @@
       "name": "gf-fitness",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 5173
+      "port": 8200
     }
   ]
 }

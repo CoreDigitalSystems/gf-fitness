@@ -2,32 +2,22 @@
   "name": "gf-fitness",
   "private": true,
   "version": "1.0.0",
-  "description": "GF Fitness Gyms — modern React website with Tailwind CSS",
-  "type": "module",
+  "description": "GF Fitness Gyms monorepo — web (Vite/React) + mobile (Expo) + shared packages",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "lint": "tsc --noEmit",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "normalize.css": "^8.0.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router-dom": "^7.14.1"
+    "dev": "npm run dev -w @gf/web",
+    "dev:web": "npm run dev -w @gf/web",
+    "dev:mobile": "npm run start -w @gf/mobile",
+    "build": "npm run build -w @gf/web",
+    "build:web": "npm run build -w @gf/web",
+    "lint": "npm run lint -w @gf/web",
+    "preview": "npm run preview -w @gf/web"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@tailwindcss/vite": "^4.2.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.4.0",
-    "tailwindcss": "^4.2.2",
-    "typescript": "~5.8.2",
-    "vite": "^8.0.4"
+    "expo-router": "~6.0.23",
+    "tailwindcss": "^4.2.2"
   }
 }
