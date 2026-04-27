@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
+    "build": "tsc --noEmit && vite build",
+    "lint": "tsc --noEmit",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist"
   },
@@ -29,6 +29,7 @@
     "globals": "^17.4.0",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4.2.2",
+    "typescript": "~5.8.2",
     "vite": "^8.0.4"
   }
 }

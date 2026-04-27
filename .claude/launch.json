@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "dev",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["vite", "--port", "5173"],
+      "name": "gf-fitness",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
       "port": 5173
     }
   ]
