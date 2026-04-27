@@ -34,7 +34,8 @@
       "Bash(./node_modules/.bin/gh-pages -d dist)",
       "Bash(git rm *)",
       "Bash(git commit -m 'fix: use BASE_URL for logo path to fix GitHub Pages subpath routing *)",
-      "Bash(git commit -m 'feat: add rotating hero background photos *)"
+      "Bash(git commit -m 'feat: add rotating hero background photos *)",
+      "Bash(npm uninstall *)"
     ]
   }
 }
