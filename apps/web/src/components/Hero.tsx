@@ -59,7 +59,7 @@ const Counter = ({ end, suffix = '', duration = 1400 }) => {
 };
 
 export const Hero = () => (
-  <section id="top" className="relative min-h-[calc(100vh-104px)] flex flex-col justify-between bg-black">
+  <section id="top" className="relative min-h-screen flex flex-col justify-between bg-black">
     <HeroBackground />
 
     <div className="relative z-10 flex-1 flex items-center">
