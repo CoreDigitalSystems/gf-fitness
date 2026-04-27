@@ -35,7 +35,8 @@
       "Bash(git rm *)",
       "Bash(git commit -m 'fix: use BASE_URL for logo path to fix GitHub Pages subpath routing *)",
       "Bash(git commit -m 'feat: add rotating hero background photos *)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(npx tsc *)"
     ]
   }
 }

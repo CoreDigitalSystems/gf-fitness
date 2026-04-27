@@ -57,7 +57,7 @@ export default function ContactPage() {
               </select>
               <textarea
                 className="border border-gray-300 rounded px-4 py-3 w-full"
-                rows="5"
+                rows={5}
                 placeholder="Your Message *"
               />
               <button

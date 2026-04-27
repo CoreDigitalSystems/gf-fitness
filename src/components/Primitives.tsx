@@ -31,7 +31,7 @@ export const SectionHeading = ({ children, className = '' }) => (
   </h2>
 );
 
-export const Placeholder = ({ label, className = '', children }) => (
+export const Placeholder = ({ label, className = '', children = null }) => (
   <div className={`placeholder ${className}`} data-label={label}>
     {children}
   </div>

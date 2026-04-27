@@ -4,7 +4,7 @@ import { SectionLabel, SectionHeading } from './Primitives';
 
 export const Contact = () => {
   const [form, setForm] = useState({ first: '', last: '', email: '', phone: '', location: '', zip: '' });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, string | null>>({});
   const [submitted, setSubmitted] = useState(false);
 
   const set = (k) => (e) => {
@@ -13,7 +13,7 @@ export const Contact = () => {
   };
 
   const validate = () => {
-    const e = {};
+    const e: Record<string, string> = {};
     if (!form.first.trim()) e.first = 'Required';
     if (!form.last.trim()) e.last = 'Required';
     if (!form.email.trim()) e.email = 'Required';

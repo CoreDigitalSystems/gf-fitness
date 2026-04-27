@@ -57,7 +57,7 @@ const Counter = ({ end, suffix = '', duration = 1400 }) => {
   return <span ref={ref}>{val.toLocaleString()}{suffix}</span>;
 };
 
-export const Hero = ({ onNav }) => (
+export const Hero = ({ onNav = undefined }: { onNav?: (id: string) => void } = {}) => (
   <section id="top" className="relative min-h-[calc(100vh-104px)] flex flex-col justify-between bg-black">
     <HeroBackground />
 
