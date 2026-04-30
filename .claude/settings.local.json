@@ -49,7 +49,10 @@
       "Bash(node -e \"console.log\\(require.resolve\\('expo-router'\\)\\)\")",
       "Bash(mkdir -p /tmp/gf-design)",
       "Bash(curl -sL \"https://api.anthropic.com/v1/design/h/z-TcrMKZDCWWSD8AgJ1tUA\" -o design.bin)",
-      "Bash(tar -xzf design.bin)"
+      "Bash(tar -xzf design.bin)",
+      "Bash(command -v ffmpeg)",
+      "Bash(ffprobe -v error -show_entries stream=duration,width,height,r_frame_rate -of default=noprint_wrappers=1 \"C:/Users/cribb/Videos/Screen Recordings/Screen Recording 2026-04-27 180050.mp4\")",
+      "Bash(ffmpeg -y -i \"C:/Users/cribb/Videos/Screen Recordings/Screen Recording 2026-04-27 180050.mp4\" -vf \"fps=4,scale=1200:-1\" /tmp/scroll-frames/f%02d.jpg)"
     ]
   }
 }
